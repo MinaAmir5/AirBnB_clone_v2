@@ -56,21 +56,21 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def delete(self, obj=None):
-        """delete from the current database session obj if not None"""
+        """delete from the currnt database session obj if not None"""
         if obj is not None:
             self.__session.delete(obj)
 
     def save(self):
-        """commit all changes of the current database session"""
+        """commit all changes of the current daabase session"""
         self.__session.commit()
 
     def reload(self):
-        """reloads data from the database"""
+        """reloads ata from the database"""
         Base.metadata.create_all(self.__engine)
         sess_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(sess_factory)
         self.__session = Session
 
     def close(self):
-        """call remove() method on the private session attribute"""
+        """call remove() method on the priate session attribute"""
         self.__session.remove()
