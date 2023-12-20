@@ -34,8 +34,8 @@ class HBNBCommand(cmd.Cmd):
         new_dict = {}
         for arg in args:
             if "=" in arg:
-                key = kvp[0]
                 kvp = arg.split('=', 1)
+                key = kvp[0]
                 value = kvp[1]
                 if value[0] == value[-1] == '"':
                     value = shlex.split(value)[0].replace('_', ' ')
@@ -51,11 +51,11 @@ class HBNBCommand(cmd.Cmd):
         return new_dict
 
     def do_quit(self, arg):
-        """Quit commad to exit the program"""
+        """Quit command to exit the program"""
         return True
 
     def do_create(self, arg):
-        """Creates a new instnce of a class"""
+        """Creates a new instance of a class"""
         args = arg.split()
         if len(args) == 0:
             print("** class name missing **")
@@ -70,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
         instance.save()
 
     def do_destroy(self, arg):
-        """Deletes an insance based on the class and id"""
+        """Deletes an instance based on the class and id"""
         args = shlex.split(arg)
         if len(args) == 0:
             print("** class name missing **")
@@ -88,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_all(self, arg):
-        """Prints string reresentations of instances"""
+        """Prints string representations of instances"""
         args = shlex.split(arg)
         obj_list = []
         if len(args) == 0:
