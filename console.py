@@ -22,7 +22,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def emptyline(self):
-        """ overwriting the emptyline method """
+        """ overwriing the emptyline method """
         return False
 
     def do_EOF(self, arg):
@@ -30,12 +30,12 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def _key_value_parser(self, args):
-        """creates a dictionary from a list of strings"""
+        """creates a dicionary from a list of strings"""
         new_dict = {}
         for arg in args:
             if "=" in arg:
-                kvp = arg.split('=', 1)
                 key = kvp[0]
+                kvp = arg.split('=', 1)
                 value = kvp[1]
                 if value[0] == value[-1] == '"':
                     value = shlex.split(value)[0].replace('_', ' ')
@@ -51,11 +51,11 @@ class HBNBCommand(cmd.Cmd):
         return new_dict
 
     def do_quit(self, arg):
-        """Quit command to exit the program"""
+        """Quit commad to exit the program"""
         return True
 
     def do_create(self, arg):
-        """Creates a new instance of a class"""
+        """Creates a new instnce of a class"""
         args = arg.split()
         if len(args) == 0:
             print("** class name missing **")
@@ -70,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
         instance.save()
 
     def do_destroy(self, arg):
-        """Deletes an instance based on the class and id"""
+        """Deletes an insance based on the class and id"""
         args = shlex.split(arg)
         if len(args) == 0:
             print("** class name missing **")
@@ -88,9 +88,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_all(self, arg):
-        """Prints string representations of instances"""
-        args = shlex.split(arg)
+        """Prints string reresentations of instances"""
         obj_list = []
+        args = shlex.split(arg)
         if len(args) == 0:
             obj_dict = models.storage.all()
         elif args[0] in classes:
@@ -105,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
         print("]")
 
     def do_show(self, arg):
-        """Prints an instance as a string based on the class and id"""
+        """Prints an instance as a string basd on the class and id"""
         args = shlex.split(arg)
         if len(args) == 0:
             print("** class name missing **")
@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, arg):
-        """Update an instance based on the class name, id, attribute & value"""
+        """Update an instance based on the clss name, id, attribute & value"""
         args = shlex.split(arg)
         integers = ["number_rooms", "number_bathrooms", "max_guest",
                     "price_by_night"]
